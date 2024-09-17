@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Employee from './components/Employee';
-import './App.css';
 
 function App() {
   const showEmployees = true;
@@ -8,7 +7,7 @@ function App() {
   const [role, setRole] = useState('dev');
 
   return (
-    <div className='App'>
+    <div className='App '>
       {showEmployees ? (
         <>
           <input
@@ -18,10 +17,36 @@ function App() {
               setRole(e.target.value);
             }}
           />
-
-          <Employee name='Michael' role={role} />
-          <Employee name='Lauren' />
-          <Employee name='Dan' />
+          <div className='flex flex-wrap justify-center'>
+            <Employee
+              name='Michael'
+              role={role}
+              img='https://i.pravatar.cc/300'
+            />
+            <Employee name='Lauren' img='https://i.pravatar.cc/300' />
+            <Employee name='Dan' img='https://i.pravatar.cc/300' />
+            <Employee
+              name='Michael'
+              role={role}
+              img='https://i.pravatar.cc/300'
+            />
+            <Employee name='Lauren' img='https://i.pravatar.cc/300' />
+            <Employee name='Dan' img='https://i.pravatar.cc/300' />
+            <Employee
+              name='Michael'
+              role={role}
+              img='https://i.pravatar.cc/300'
+            />
+            <Employee name='Lauren' img='https://i.pravatar.cc/300' />
+            <Employee name='Dan' img='https://i.pravatar.cc/300' />
+            <Employee
+              name='Michael'
+              role={role}
+              img='https://i.pravatar.cc/300'
+            />
+            <Employee name='Lauren' img='https://i.pravatar.cc/300' />
+            <Employee name='Dan' img='https://i.pravatar.cc/300' />
+          </div>
         </>
       ) : (
         <p>You can't see the employees!</p>
