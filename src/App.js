@@ -2,13 +2,19 @@ import Employee from './components/Employee';
 import './App.css';
 
 function App() {
-  const showEmployees = false;
+  const showEmployees = true;
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        {showEmployees ? <Employee /> : <p>You can't see the employees!</p>}
-      </header>
+      {showEmployees ? (
+        <>
+          <Employee name='Michael' role='CEO' />
+          <Employee name='Lauren' role='Programmer' />
+          <Employee name='Dan' />
+        </>
+      ) : (
+        <p>You can't see the employees!</p>
+      )}
     </div>
   );
 }
