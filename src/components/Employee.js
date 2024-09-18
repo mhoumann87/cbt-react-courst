@@ -15,7 +15,7 @@ function Employee(props) {
             </p>
           </div>
           <button className='px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:ring-offset-2'>
-            Message
+            Update
           </button>
         </div>
       </div>
