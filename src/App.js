@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Employee from './components/Employee';
 import AddEmployee from './components/AddEmployee';
 import { v4 as uuidv4 } from 'uuid';
+import EditEmployee from './components/EditEmployee';
 
 function App() {
   const showEmployees = true;
@@ -66,29 +67,32 @@ function App() {
   }
 
   return (
-    <div className='App '>
-      {showEmployees ? (
-        <>
-          <div className='flex flex-wrap justify-center'>
-            {employees.map(employee => {
-              return (
-                <Employee
-                  key={employee.id}
-                  id={employee.id}
-                  name={employee.name}
-                  role={employee.role}
-                  img={employee.img}
-                  updateEmployee={updateEmployee}
-                />
-              );
-            })}
-          </div>
-          <AddEmployee addEmployee={addEmployee} />
-        </>
-      ) : (
-        <p>You can't see the employees!</p>
-      )}
-    </div>
+    <>
+      <div className='flex flex-wrap justify-center'>
+        {employees.map(employee => {
+          const editEmployee = (
+            <EditEmployee
+              id={employee.id}
+              name={employee.name}
+              role={employee.role}
+              updateEmployee={updateEmployee}
+            />
+          );
+
+          return (
+            <Employee
+              key={employee.id}
+              id={employee.id}
+              name={employee.name}
+              role={employee.role}
+              img={employee.img}
+              editEmployee={editEmployee}
+            />
+          );
+        })}
+      </div>
+      <AddEmployee addEmployee={addEmployee} />
+    </>
   );
 }
 
