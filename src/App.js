@@ -1,12 +1,12 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
 import Employee from './components/Employee';
 import AddEmployee from './components/AddEmployee';
-import { v4 as uuidv4 } from 'uuid';
 import EditEmployee from './components/EditEmployee';
+import Header from './components/Header';
 
 function App() {
-  const showEmployees = true;
-
   const [employees, setEmployees] = useState([
     {
       id: 1,
@@ -53,6 +53,7 @@ function App() {
       }
       return employee;
     });
+
     setEmployees(updatedEmployees);
   }
 
@@ -67,7 +68,9 @@ function App() {
   }
 
   return (
-    <>
+    <div className='App bg-slate-600 min-h-screen'>
+      <Header />
+
       <div className='flex flex-wrap justify-center'>
         {employees.map(employee => {
           const editEmployee = (
@@ -92,7 +95,7 @@ function App() {
         })}
       </div>
       <AddEmployee addEmployee={addEmployee} />
-    </>
+    </div>
   );
 }
 
