@@ -20,7 +20,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+export default function Header(props) {
   return (
     <Disclosure as='nav' className='bg-gray-800'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
@@ -126,6 +126,7 @@ export default function Example() {
           ))}
         </div>
       </DisclosurePanel>
+      {props.children}
     </Disclosure>
   );
 }
