@@ -4,7 +4,6 @@ import {
   DisclosurePanel,
   Menu,
   MenuButton,
-  MenuItem,
   MenuItems,
 } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -86,29 +85,7 @@ export default function Header(props) {
                 </div>
                 <MenuItems
                   transition
-                  className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in'>
-                  <MenuItem>
-                    <a
-                      href='#'
-                      className='block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100'>
-                      Your Profile
-                    </a>
-                  </MenuItem>
-                  <MenuItem>
-                    <a
-                      href='#'
-                      className='block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100'>
-                      Settings
-                    </a>
-                  </MenuItem>
-                  <MenuItem>
-                    <a
-                      href='#'
-                      className='block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100'>
-                      Sign out
-                    </a>
-                  </MenuItem>
-                </MenuItems>
+                  className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in'></MenuItems>
               </Menu>
             </div>
           </div>
@@ -117,10 +94,10 @@ export default function Header(props) {
         <DisclosurePanel className='sm:hidden'>
           <div className='space-y-1 px-2 pb-3 pt-2'>
             {navigation.map(item => (
-              <DisclosureButton
+              <NavLink
                 key={item.name}
                 as='a'
-                href={item.href}
+                to={item.href}
                 aria-current={item.current ? 'page' : undefined}
                 className={classNames(
                   item.current
@@ -129,12 +106,16 @@ export default function Header(props) {
                   'block rounded-md px-3 py-2 text-base font-medium'
                 )}>
                 {item.name}
-              </DisclosureButton>
+              </NavLink>
             ))}
           </div>
         </DisclosurePanel>
-        {props.children}
       </Disclosure>
+      <div className='bg-slate-600'>
+        <div className='max-w-7xl mx-auto min-h-screen p-3'>
+          {props.children}
+        </div>
+      </div>
     </>
   );
 }

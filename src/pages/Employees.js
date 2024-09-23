@@ -68,7 +68,7 @@ function Employees() {
   }
 
   return (
-    <div className='App bg-slate-600 min-h-screen'>
+    <div>
       <div className='flex flex-wrap justify-center'>
         {employees.map(employee => {
           const editEmployee = (
